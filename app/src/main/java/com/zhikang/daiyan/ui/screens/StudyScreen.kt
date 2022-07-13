@@ -4,6 +4,7 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.List
 import androidx.compose.material.icons.filled.Notifications
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.runtime.Composable
@@ -11,14 +12,20 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
+import coil.compose.AsyncImage
+import com.google.accompanist.pager.ExperimentalPagerApi
+import com.google.accompanist.pager.HorizontalPager
+import com.zhikang.daiyan.ui.components.SwiperContent
 import com.zhikang.daiyan.ui.components.TopAppBar
 import com.zhikang.daiyan.viewmodel.MainViewModel
 
+@OptIn(ExperimentalPagerApi::class)
 @Composable
 fun StudyScreen(vm: MainViewModel = viewModel()) {
     Column(modifier = Modifier) {
@@ -102,6 +109,39 @@ fun StudyScreen(vm: MainViewModel = viewModel()) {
                 }
             }
         }
+
+        TabRow(
+            selectedTabIndex = vm.currentTypeIndex,
+            backgroundColor = Color.Transparent,
+            contentColor = Color(0xFF149EE7),
+            indicator = {},
+            divider = {}
+        ) {
+            vm.types.forEachIndexed { index, dataType ->
+                LeadingIconTab(
+                    selected = vm.currentTypeIndex == index,
+                    onClick = {
+                        vm.updateTypeIndex(index)
+                    },
+                    selectedContentColor = Color(0xFF149EE7),
+                    unselectedContentColor = Color(0xFF666666),
+                    icon = {
+                        Icon(imageVector = dataType.icon, contentDescription = null)
+                    },
+                    text = {
+                        Text(
+                            text = dataType.title,
+                            modifier = Modifier.padding(vertical = 8.dp),
+                            fontSize = 16.sp
+                        )
+                    }
+                )
+            }
+        }
+
+
+        //轮播图
+        SwiperContent(vm)
     }
 
 }
