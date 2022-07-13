@@ -61,11 +61,11 @@ class MainViewModel : ViewModel() {
 
     //轮播图数据
     val swiperData = listOf(
-        SwiperEntity("https://docs.bughub.icu/compose/assets/banner1.webp"),
-        SwiperEntity("https://docs.bughub.icu/compose/assets/banner2.webp"),
-        SwiperEntity("https://docs.bughub.icu/compose/assets/banner3.webp"),
-        SwiperEntity("https://docs.bughub.icu/compose/assets/banner4.jpg"),
-        SwiperEntity("https://docs.bughub.icu/compose/assets/banner5.jpg")
+        SwiperEntity("https://img1.baidu.com/it/u=1769269289,1032280223&fm=253&fmt=auto&app=138&f=JPEG?w=1250&h=500"),
+        SwiperEntity("https://img1.baidu.com/it/u=3336929827,2621756749&fm=253&fmt=auto&app=138&f=JPEG?w=1499&h=500"),
+        SwiperEntity("https://img0.baidu.com/it/u=1319063400,390126700&fm=253&fmt=auto&app=138&f=JPEG?w=667&h=500"),
+        SwiperEntity("https://img0.baidu.com/it/u=285122086,2800107243&fm=253&fmt=auto&app=138&f=JPEG?w=750&h=500"),
+        SwiperEntity("https://img2.baidu.com/it/u=3382902867,251543546&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=331")
     )
 
     //通知数据
@@ -74,6 +74,6 @@ class MainViewModel : ViewModel() {
         "关于公布第十九届程序设计竞赛获奖名单的通知",
         "关于公布第十二届大学生节能减排社会实践与科技竞赛获奖名单的通知",
         "关于公布第二十二届数学竞赛获奖名单的通知",
-        "关于公布第二十二届数学竞赛获奖名单的通知"
+        "教务处关于2022年暑假工作安排的通知"
     )
 }

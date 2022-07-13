@@ -1,6 +1,8 @@
 package com.zhikang.daiyan.ui.screens
 
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
@@ -17,18 +19,21 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewmodel.compose.viewModel
 import coil.compose.AsyncImage
 import com.google.accompanist.pager.ExperimentalPagerApi
 import com.google.accompanist.pager.HorizontalPager
+import com.zhikang.daiyan.ui.components.ArticleItem
 import com.zhikang.daiyan.ui.components.NotificationContent
 import com.zhikang.daiyan.ui.components.SwiperContent
 import com.zhikang.daiyan.ui.components.TopAppBar
+import com.zhikang.daiyan.viewmodel.ArticleViewModel
 import com.zhikang.daiyan.viewmodel.MainViewModel
 
 @OptIn(ExperimentalPagerApi::class)
 @Composable
-fun StudyScreen(vm: MainViewModel = viewModel()) {
+fun StudyScreen(vm: MainViewModel = viewModel(), articleViewModel: ArticleViewModel = viewModel()) {
     Column(modifier = Modifier) {
 
         //标题栏
@@ -140,12 +145,24 @@ fun StudyScreen(vm: MainViewModel = viewModel()) {
             }
         }
 
+        LazyColumn() {
 
-        //轮播图
-        SwiperContent(vm)
+            item {
+                //轮播图
+                SwiperContent(vm)
+            }
 
-        //通知公告
-        NotificationContent(vm)
+            item {
+                //通知公告
+                NotificationContent(vm)
+            }
+
+            items(articleViewModel.list) { article ->
+                ArticleItem(article)
+            }
+
+        }
+
 
     }
 
