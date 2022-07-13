@@ -67,4 +67,13 @@ class MainViewModel : ViewModel() {
         SwiperEntity("https://docs.bughub.icu/compose/assets/banner4.jpg"),
         SwiperEntity("https://docs.bughub.icu/compose/assets/banner5.jpg")
     )
+
+    //通知数据
+    val notifications = listOf(
+        "关于公布第八届材料创新、设计及应用大赛获奖名单的通知",
+        "关于公布第十九届程序设计竞赛获奖名单的通知",
+        "关于公布第十二届大学生节能减排社会实践与科技竞赛获奖名单的通知",
+        "关于公布第二十二届数学竞赛获奖名单的通知",
+        "关于公布第二十二届数学竞赛获奖名单的通知"
+    )
 }

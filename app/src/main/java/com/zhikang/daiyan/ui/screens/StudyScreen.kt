@@ -21,6 +21,7 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import coil.compose.AsyncImage
 import com.google.accompanist.pager.ExperimentalPagerApi
 import com.google.accompanist.pager.HorizontalPager
+import com.zhikang.daiyan.ui.components.NotificationContent
 import com.zhikang.daiyan.ui.components.SwiperContent
 import com.zhikang.daiyan.ui.components.TopAppBar
 import com.zhikang.daiyan.viewmodel.MainViewModel
@@ -142,6 +143,10 @@ fun StudyScreen(vm: MainViewModel = viewModel()) {
 
         //轮播图
         SwiperContent(vm)
+
+        //通知公告
+        NotificationContent(vm)
+
     }
 
 }
