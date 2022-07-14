@@ -24,16 +24,20 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import coil.compose.AsyncImage
 import com.google.accompanist.pager.ExperimentalPagerApi
 import com.google.accompanist.pager.HorizontalPager
-import com.zhikang.daiyan.ui.components.ArticleItem
-import com.zhikang.daiyan.ui.components.NotificationContent
-import com.zhikang.daiyan.ui.components.SwiperContent
+import com.zhikang.daiyan.model.entity.VideoEntity
+import com.zhikang.daiyan.ui.components.*
 import com.zhikang.daiyan.ui.components.TopAppBar
 import com.zhikang.daiyan.viewmodel.ArticleViewModel
 import com.zhikang.daiyan.viewmodel.MainViewModel
+import com.zhikang.daiyan.viewmodel.VideoViewModel
 
 @OptIn(ExperimentalPagerApi::class)
 @Composable
-fun StudyScreen(vm: MainViewModel = viewModel(), articleViewModel: ArticleViewModel = viewModel()) {
+fun StudyScreen(
+    vm: MainViewModel = viewModel(),
+    articleViewModel: ArticleViewModel = viewModel(),
+    videoViewModel: VideoViewModel = viewModel()
+) {
     Column(modifier = Modifier) {
 
         //标题栏
@@ -157,8 +161,16 @@ fun StudyScreen(vm: MainViewModel = viewModel(), articleViewModel: ArticleViewMo
                 NotificationContent(vm)
             }
 
-            items(articleViewModel.list) { article ->
-                ArticleItem(article)
+            //通知列表
+//            items(articleViewModel.list) { article ->
+//                ArticleItem(article)
+//            }
+
+            //视频列表
+            items(
+                videoViewModel.list
+            ){ videoEntity ->
+                VideoItem(videoEntity)
             }
 
         }
