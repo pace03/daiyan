@@ -161,23 +161,22 @@ fun StudyScreen(
                 NotificationContent(vm)
             }
 
-            //通知列表
-//            items(articleViewModel.list) { article ->
-//                ArticleItem(article)
-//            }
 
-            //视频列表
-            items(
-                videoViewModel.list
-            ){ videoEntity ->
-                VideoItem(videoEntity)
+            if (vm.showArticleList) {
+                //通知列表
+                items(articleViewModel.list) { article ->
+                    ArticleItem(article)
+                }
+            } else {
+                //视频列表
+                items(
+                    videoViewModel.list
+                ) { videoEntity ->
+                    VideoItem(videoEntity)
+                }
             }
-
         }
-
-
     }
-
 }
 
 @Preview

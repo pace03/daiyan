@@ -1,6 +1,8 @@
 package com.zhikang.daiyan.ui.screens
 
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.navigationBarsPadding
+import androidx.compose.foundation.layout.padding
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.DateRange
@@ -53,11 +55,15 @@ fun MainFrame() {
                 }
             }
         }) {
-            when (currentNavigationIndex) {
-                0 -> StudyScreen()
-                1 -> TaskScreen()
-                2 -> MineScreen()
+
+            Box(modifier = Modifier.padding(it)) {
+                when (currentNavigationIndex) {
+                    0 -> StudyScreen()
+                    1 -> TaskScreen()
+                    2 -> MineScreen()
+                }
             }
+
         }
     }
 

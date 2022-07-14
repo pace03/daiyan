@@ -28,6 +28,7 @@ class MainViewModel : ViewModel() {
     var categoryIndex by mutableStateOf(0)
         private set
 
+
     /**
      * 更新分类下标
      *
@@ -50,6 +51,10 @@ class MainViewModel : ViewModel() {
     var currentTypeIndex by mutableStateOf(0)
         private set
 
+    //是否文章列表
+    var showArticleList by mutableStateOf(true)
+        private set
+
     /**
      * 更新类型下标
      *
@@ -57,6 +62,7 @@ class MainViewModel : ViewModel() {
      */
     fun updateTypeIndex(index: Int) {
         currentTypeIndex = index
+        showArticleList = currentTypeIndex == 0
     }
 
     //轮播图数据
