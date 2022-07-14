@@ -18,6 +18,10 @@ import com.google.accompanist.systemuicontroller.rememberSystemUiController
 import com.zhikang.daiyan.ui.theme.Blue200
 import com.zhikang.daiyan.ui.theme.Blue700
 
+
+//标题栏高度
+val appBarHeight = 56.dp
+
 /**
  * 统一标题栏
  * @param content 标题栏内容
@@ -27,12 +31,10 @@ import com.zhikang.daiyan.ui.theme.Blue700
 fun TopAppBar(content: @Composable () -> Unit) {
 
     val systemUiController = rememberSystemUiController()
-    LaunchedEffect(key1 = Unit){
+    LaunchedEffect(key1 = Unit) {
         systemUiController.setStatusBarColor(Color.Transparent)
     }
 
-    //标题栏高度
-    var appBarHeight = 56.dp
 
     //转换状态栏高度px为dp
     val statusBarHeightDp = with(LocalDensity.current) {
@@ -51,7 +53,7 @@ fun TopAppBar(content: @Composable () -> Unit) {
             .fillMaxWidth()
             .height(appBarHeight + statusBarHeightDp)
             .padding(top = statusBarHeightDp),
-                horizontalArrangement = Arrangement . Center,
+        horizontalArrangement = Arrangement.Center,
         verticalAlignment = Alignment.CenterVertically
     ) {
         content()
