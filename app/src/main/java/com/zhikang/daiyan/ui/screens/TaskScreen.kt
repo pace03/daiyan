@@ -3,15 +3,18 @@ package com.zhikang.daiyan.ui.screens
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.text.*
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -117,33 +120,62 @@ fun TaskScreen(taskVM: TaskViewModel = viewModel()) {
             item {
                 Row(
                     horizontalArrangement = Arrangement.SpaceEvenly,
-                    modifier = Modifier.fillMaxWidth()
-                        .offset(y=(-42).dp)
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .offset(y = (-42).dp)
                 ) {
                     Column() {
                         Text(
                             text = "${taskVM.totalPointOfYear}分",
-                            fontSize = 16.sp,
+                            fontSize = 18.sp,
                             color = Color.White
                         )
                         Text(
                             text = "学年规定积分",
-                            fontSize = 12.sp,
+                            fontSize = 14.sp,
                             color = Color.White
                         )
                     }
                     Column() {
                         Text(
                             text = "${taskVM.totalPointOfYear - taskVM.pointOfYear}分",
-                            fontSize = 16.sp,
+                            fontSize = 18.sp,
                             color = Color.White
                         )
                         Text(
                             text = "还差",
-                            fontSize = 12.sp,
+                            fontSize = 14.sp,
                             color = Color.White
                         )
                     }
+                }
+            }
+
+            //学习明细
+            item {
+                Column(
+                    modifier = Modifier
+                        .clip(RoundedCornerShape(topStart = 16.dp, topEnd = 16.dp))
+                        .background(Color.White)
+                        .fillMaxSize()
+                        .padding(top = 8.dp)
+                        .padding(horizontal = 8.dp, vertical = 8.dp)
+
+
+                ) {
+                    Text(
+                        text = "学习明细",
+                        fontSize = 18.sp,
+                        color = Color(0xFF333333),
+                        fontWeight = FontWeight.Bold
+                    )
+                    Text(
+                        text = "学习最近一周获得积分情况",
+                        fontSize =15.sp,
+                        color = Color(0xFF999999)
+                    )
+
+                    //TODO 积分情况的折线图
                 }
             }
         }
