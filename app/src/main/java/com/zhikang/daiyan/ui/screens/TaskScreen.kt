@@ -23,6 +23,7 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import com.google.accompanist.insets.statusBarsPadding
 import com.zhikang.daiyan.ui.components.ChartView
 import com.zhikang.daiyan.ui.components.CircleRing
+import com.zhikang.daiyan.ui.components.DailyTaskContent
 import com.zhikang.daiyan.ui.components.appBarHeight
 import com.zhikang.daiyan.viewmodel.TaskViewModel
 
@@ -38,6 +39,7 @@ fun TaskScreen(taskVM: TaskViewModel = viewModel()) {
     //当学年积分改变时更新学年积分进度百分比
     LaunchedEffect(taskVM.pointOfYear) {
         taskVM.updatePointPercent()
+        taskVM.updateTips()
     }
     Column(
         modifier = Modifier
@@ -190,6 +192,22 @@ fun TaskScreen(taskVM: TaskViewModel = viewModel()) {
                             )
                         }
                     }
+
+                    //今日任务提醒
+                    Text(
+                        text = taskVM.tips,
+                        color = Color(0xFF149EE7),
+                        fontSize = 14.sp,
+                        modifier = Modifier
+                            .padding(vertical = 8.dp)
+                            .clip(RoundedCornerShape(4.dp))
+                            .background(Color(0x33149EE7))
+                            .padding(8.dp)
+                            .fillMaxWidth()
+                    )
+
+                    //每日任务
+                    DailyTaskContent()
                 }
             }
         }
