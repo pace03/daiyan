@@ -9,9 +9,7 @@ import androidx.compose.material.Divider
 import androidx.compose.material.Icon
 import androidx.compose.material.Text
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Search
-import androidx.compose.material.icons.filled.SmartDisplay
-import androidx.compose.material.icons.filled.VideoLabel
+import androidx.compose.material.icons.filled.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -95,7 +93,7 @@ fun VideoItem(videoEntity: VideoEntity) {
                 .layoutId("title")
         )
         Icon(
-            imageVector = Icons.Default.SmartDisplay,
+            imageVector = Icons.Default.Movie,
             contentDescription = null,
             tint = Color(0xFF999999),
             modifier = Modifier

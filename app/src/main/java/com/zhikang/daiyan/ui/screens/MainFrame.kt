@@ -5,9 +5,7 @@ import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.DateRange
-import androidx.compose.material.icons.filled.Home
-import androidx.compose.material.icons.filled.Person
+import androidx.compose.material.icons.filled.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -19,9 +17,9 @@ import com.zhikang.daiyan.model.entity.NavigationItem
 fun MainFrame() {
 
     val navigationItems = listOf(
-        NavigationItem(title = "学习", icon = Icons.Filled.Home),
-        NavigationItem(title = "任务", icon = Icons.Filled.DateRange),
-        NavigationItem(title = "我的", icon = Icons.Filled.Person),
+        NavigationItem(title = "学习", icon = Icons.Filled.School),
+        NavigationItem(title = "任务", icon = Icons.Filled.TaskAlt),
+        NavigationItem(title = "我的", icon = Icons.Filled.ManageAccounts),
 
         )
 
