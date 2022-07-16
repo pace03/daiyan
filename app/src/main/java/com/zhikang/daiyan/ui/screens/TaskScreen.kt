@@ -21,8 +21,8 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.google.accompanist.insets.statusBarsPadding
+import com.zhikang.daiyan.ui.components.ChartView
 import com.zhikang.daiyan.ui.components.CircleRing
-import com.zhikang.daiyan.ui.components.TopAppBar
 import com.zhikang.daiyan.ui.components.appBarHeight
 import com.zhikang.daiyan.viewmodel.TaskViewModel
 
@@ -170,12 +170,26 @@ fun TaskScreen(taskVM: TaskViewModel = viewModel()) {
                         fontWeight = FontWeight.Bold
                     )
                     Text(
-                        text = "学习最近一周获得积分情况",
-                        fontSize =15.sp,
+                        text = "最近一周获得积分情况",
+                        fontSize = 14.sp,
                         color = Color(0xFF999999)
                     )
 
                     //TODO 积分情况的折线图
+                    ChartView(taskVM.pointOfWeek, modifier = Modifier.padding(vertical = 8.dp))
+
+                    //折线图下的日期
+                    Row() {
+                        taskVM.weeks.forEach {
+                            Text(
+                                text = it,
+                                fontSize = 12.sp,
+                                color = Color(0xFF999999),
+                                modifier = Modifier.weight(1f),
+                                textAlign = TextAlign.Center
+                            )
+                        }
+                    }
                 }
             }
         }
