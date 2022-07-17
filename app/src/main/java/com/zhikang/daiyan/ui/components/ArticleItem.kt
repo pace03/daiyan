@@ -11,8 +11,13 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.zhikang.daiyan.model.entity.ArticleEntity
 
+/**
+ * 文章列表 item
+ * @param article
+ * @param modifier
+ */
 @Composable
-fun ArticleItem(article: ArticleEntity) {
+fun ArticleItem(article: ArticleEntity,modifier: Modifier=Modifier) {
 
     Column(
         modifier = Modifier

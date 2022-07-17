@@ -14,7 +14,7 @@ import com.google.accompanist.insets.ProvideWindowInsets
 import com.zhikang.daiyan.model.entity.NavigationItem
 
 @Composable
-fun MainFrame() {
+fun MainFrame(onNavigateToArticle: () -> Unit = {}) {
 
     val navigationItems = listOf(
         NavigationItem(title = "学习", icon = Icons.Filled.School),
@@ -56,7 +56,7 @@ fun MainFrame() {
 
             Box(modifier = Modifier.padding(it)) {
                 when (currentNavigationIndex) {
-                    0 -> StudyScreen()
+                    0 -> StudyScreen(onNavigateToArticle = onNavigateToArticle)
                     1 -> TaskScreen()
                     2 -> MineScreen()
                 }

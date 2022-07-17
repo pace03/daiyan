@@ -13,8 +13,10 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.core.view.WindowCompat
+import com.zhikang.daiyan.ui.components.NavHostApp
 import com.zhikang.daiyan.ui.screens.MainFrame
-import com.zhikang.daiyan.ui.theme.带盐Theme
+import com.zhikang.daiyan.ui.theme.带研Theme
+import com.zhikang.daiyan.ui.theme.带研Theme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -26,22 +28,22 @@ class MainActivity : ComponentActivity() {
 //        if(resourceId>0){
 //            statusBarHeight = resources.getDimensionPixelSize(resourceId)
 //        }
-          //API已过期
+        //API已过期
 //        //处理不同机型，状态栏不透明问题
 //        window.statusBarColor = Color.Transparent.value.toInt()
 //        //处理不同机型，导航栏遮盖内容问题
 //        window.decorView.systemUiVisibility=
 //            View.SYSTEM_UI_FLAG_FULLSCREEN or View.SYSTEM_UI_FLAG_LAYOUT_STABLE
 
-        WindowCompat.setDecorFitsSystemWindows(window,false)
+        WindowCompat.setDecorFitsSystemWindows(window, false)
         setContent {
-            带盐Theme {
+            带研Theme() {
                 // A surface container using the 'background' color from the theme
                 Surface(
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colors.background
                 ) {
-                    MainFrame()
+                    NavHostApp()
                 }
             }
         }
@@ -56,7 +58,7 @@ fun Greeting(name: String) {
 @Preview(showBackground = true)
 @Composable
 fun DefaultPreview() {
-    带盐Theme {
+    带研Theme() {
         Greeting("Android")
     }
 }
